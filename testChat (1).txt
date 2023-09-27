@@ -1,0 +1,46 @@
+lw x1, 0(x0)
+    lw x2, 4(x0)
+add x3, x1, x2
+sub x4, x1, x2
+    sll x5, x1, x2
+    slt x6, x1, x2
+    sltu x7, x1, x2
+    xor x8, x1, x2
+srl x9, x1, x2
+sra x10, x1, x2
+    or x11, x1, x2
+    and x12, x1, x2
+addi x13, x1, 5
+slti x14, x2, 8
+sltiu x15, x1, 2
+    xori x16, x2, 10
+    ori x17, x1, 8
+    andi x18, x2, 3
+slli x19, x1, 9
+srai x20, x2, 10
+srli x21, x1, 15
+lb x19, 0(x1)
+lh x20, 0(x2)
+lw x21, 8(x0)
+sb x22, 0(x1)
+sh x23, 0(x2)
+sw x3, 12(x1)
+lbu x24, 0(x2)
+lhu x25, 0(x1)
+lui x26, 3000
+jal x24, function
+    addi x1, x1, 10
+function:  	beq x1, x2, equal
+    		bne x1, x2, not_equal
+    		blt x1, x2, less_than
+    		bge x1, x2, greater_than_or_equal
+    		bltu x1, x2, less_than_unsigned
+    		bgeu x1, x2, greater_than_or_equal_unsigned    
+jalr x25, x1, 0
+auipc x27, 3000
+	equal: addi x28, x2, 9
+	not_equal: addi x28, x2, 19
+	less_than: addi x28, x2, 29
+	greater_than_or_equal: addi x28, x2, 39
+	less_than_unsigned: addi x28, x2, 49
+	greater_than_or_equal_unsigned: addi x28, x2, 59
